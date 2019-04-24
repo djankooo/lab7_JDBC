@@ -238,6 +238,22 @@ public class Database {
         }
         return personData;
     }
+    public void sum(){
+        String mainList = "SELECT SUM(s.servicePrice) FROM mainList as m INNER JOIN servicesList as s ON m.mainService=s.serviceID INNER JOIN customerList as c ON m.mainCustomer=c.customerID";
+
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(mainList)){
+
+            while (rs.next()) {
+                System.out.println(rs.getInt(1));
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Error sum");
+        }
+    }
 
 
 

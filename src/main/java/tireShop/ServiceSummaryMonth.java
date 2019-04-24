@@ -70,6 +70,8 @@ public class ServiceSummaryMonth extends Application {
     }
     public void setTables(){
 
+        table.setPrefSize(700,300);
+
         jobIDCol = new TableColumn("ID");
         serviceCol = new TableColumn("Service");
         customerCol = new TableColumn("Customer");
@@ -116,8 +118,7 @@ public class ServiceSummaryMonth extends Application {
         primaryStage.show();
 
         submitButton.setOnAction(event -> {
-            //database.insertToServicesList(serviceNameTextField.getText(),Double.valueOf(servicePriceTextField.getText()));
-            //database.selectAllServicesList();
+            database.sum();
         });
     }
 
